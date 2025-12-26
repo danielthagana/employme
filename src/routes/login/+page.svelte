@@ -10,6 +10,11 @@
 	let error = $state('');
 
 </script>
+<svelte:head>
+	<title>Login - EmployMe</title>
+	<meta name="description" content="Login to your EmployMe account to access job opportunities and manage your profile." />
+
+</svelte:head>
 
 <div class="flex min-h-screen bg-gray-50">
 
@@ -24,16 +29,14 @@
 
 			<!-- Login Form -->
 			<form class="space-y-6" method="post" use:enhance={({formData}) => {
+				error = '';
 				console.log('Form submitted with data:', formData, email, password);
 
 				return async ({result})=> {
-					if (result.type === 'error') {
-						console.error('Login failed:', result.error);
-					} else {
-						console.log('Login successful, redirecting...');
-						// window.location.href = '/dashboard'; // Redirect on success
-						
+					if(result.type === 'failure') {
+						error = `${result.data?.error}` || 'An unknown error occurred.';
 					}
+
 				}
 			}}>
 				{#if error}

@@ -1,13 +1,17 @@
 <script>
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
 
 	let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="employmelogo.png" />
 </svelte:head>
+
+
+
+
+
 <h1 class="logo">EmployMe</h1>
 
 <div class="navbar">
