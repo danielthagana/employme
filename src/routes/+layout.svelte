@@ -8,27 +8,7 @@
 	<link rel="icon" href="employmelogo.png" />
 </svelte:head>
 
-
-
-
-
-<h1 class="logo">EmployMe</h1>
-
-<div class="navbar">
-	<div class="menu">
-		<ul>
-			<li><a href="/">Home</a></li>
-			<li><a href="/about">About</a></li>
-			<li><a href="/services">Services</a></li>
-			<li><a href="/contact">Contact</a></li>
-		</ul>
-	</div>
-</div>
-<div class="search">
-	<input class="srch" type="search" name="" placeholder="Type To Text" />
-</div>
-
-<div class="main">
+<div class="">
 	{@render children?.()}
 </div>
 
