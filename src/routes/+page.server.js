@@ -1,11 +1,9 @@
 import db from '$lib/database'
+import { redirect } from '@sveltejs/kit';
+ 
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load() {
+export async function load() { 
+     return redirect(302, '/login');
 
-    const [results, fields] = await db.query('SELECT * FROM roles')
-
-    console.log(results, results.length); // results contains rows returned by server
-    console.log(fields); // fields contains extra meta data about results, if available
-    return {};
 };

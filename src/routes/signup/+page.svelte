@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-	<title>Login - EmployMe</title>
+	<title>Sign Up - EmployMe</title>
 	<meta
 		name="description"
 		content="Login to your EmployMe account to access job opportunities and manage your profile."
@@ -39,7 +39,7 @@
 				class="space-y-6"
 				method="post"
 				use:enhance={({ formData, cancel }) => {
-					
+
 					error = '';
 					if (password !== confirmPassword) {
 						error = 'Passwords do not match.';
@@ -172,7 +172,7 @@
 				<button
 					type="submit"
 					disabled={isLoading}
-					class="w-full transform rounded-lg bg-blue-600 px-4 py-3 font-semibold text-white transition duration-200 ease-in-out hover:scale-105 hover:bg-blue-700 disabled:bg-blue-400 disabled:hover:scale-100"
+					class="w-full transform rounded-lg bg-primary px-4 py-3 font-semibold text-white  hover:bg-primary/80 disabled:bg-blue-400 disabled:hover:scale-100"
 				>
 					{isLoading ? 'Creating Account...' : 'Sign Up'}
 				</button>
@@ -181,7 +181,7 @@
 				<div class="text-center">
 					<p class="text-gray-600">
 						Do you have an account?
-						<a href="/login" class="font-semibold text-blue-600 hover:text-blue-700">
+						<a href="/login" class="font-semibold text-primary  hover:underline" >
 							Login Here
 						</a>
 					</p>
@@ -215,9 +215,7 @@
 	</div>
 
 	<!-- Right Side - Image -->
-	<div
-		class="relative hidden w-1/2 items-center justify-center overflow-hidden bg-gradient-to-br from-blue-600 to-blue-800 lg:flex"
-	>
+	<div class="relative hidden w-1/2 items-center justify-center overflow-hidden bg-primary lg:flex">
 		<!-- Decorative shapes -->
 		<div class="absolute inset-0 opacity-10">
 			<div class="absolute top-0 right-0 -mt-48 -mr-48 h-96 w-96 rounded-full bg-white"></div>
@@ -231,37 +229,39 @@
 					<img
 						src="/employmelogo.png"
 						alt="EmployMe Logo"
-						class="mb-6 h-24 w-24 object-contain drop-shadow-lg"
+						class=" h-30 w-40 object-contain drop-shadow-lg"
 					/>
 				</div>
 			</div>
-			<h2 class="mb-4 text-4xl font-bold text-white">EmployMe</h2>
-			<p class="mb-8 max-w-sm text-lg text-blue-100">
-				Join thousands of professionals finding their perfect opportunities
-			</p>
+			<h2
+				class="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-4xl font-bold text-transparent"
+			>
+				EmployMe
+			</h2>
+			<p class="mb-8 max-w-sm text-lg text-gray-300">Work For Everyone, Everywhere.</p>
 
 			<!-- Feature Highlights -->
-			<div class="mt-12 space-y-4">
+			<div class="mt-1 space-y-3">
 				<div class="flex items-center justify-center text-white">
 					<svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"
 						></path>
 					</svg>
-					<span class="text-lg">Find your dream job</span>
+					<span class="text-lg">Find Jobs Near You</span>
 				</div>
 				<div class="flex items-center justify-center text-white">
 					<svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"
 						></path>
 					</svg>
-					<span class="text-lg">Connect with top employers</span>
+					<span class="text-lg">Fair Opportunities</span>
 				</div>
 				<div class="flex items-center justify-center text-white">
 					<svg class="mr-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"
 						></path>
 					</svg>
-					<span class="text-lg">Grow your career</span>
+					<span class="text-lg">Secure and Transparent Hiring</span>
 				</div>
 			</div>
 		</div>
