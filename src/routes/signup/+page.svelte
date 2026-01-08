@@ -1,5 +1,6 @@
 <script>
 	import { enhance } from '$app/forms';
+	import { goto } from '$app/navigation';
 
 	/** @type {import('./$types').PageProps} */
 	let { data } = $props();
@@ -50,6 +51,11 @@
 					return async ({ result }) => {
 						if (result.type === 'failure') {
 							error = `${result.data?.error}` || 'An unknown error occurred.';
+
+						}
+						else if (result.type === 'success') {
+							
+							goto('/login');
 						}
 					};
 				}}
