@@ -20,8 +20,8 @@
 	let sidebarOpen = $state(true);
 
 	const navItems = [
-		{ name: 'Dashboard', href: '/dashboard', icon: LayoutDashboard },
-		{ name: 'Pages', href: '/dashboard/?pages', icon: FileText },
+		{ name: 'Jobs', href: '/dashboard', icon: LayoutDashboard },
+		{ name: 'Applications', href: '/Applications', icon: FileText },
 		{ name: 'User Profile', href: '/profile', icon: CircleUser },
 		{ name: 'Help & Support', href: '/help', icon: CircleAlert }
 	];
@@ -30,7 +30,11 @@
 		{ name: 'Jobs and Hustles', href: '/jobs', icon: List },
 		{ name: 'My Jobs Profile', href: '/myjobs', icon: Plug }
 	];
+	function closeDropdown() {
+		dropdownOpen = false;
+	}
 </script>
+
 
 <!-- Navigation Bar -->
 <nav class="fixed top-0 z-10 w-full bg-gray-900 px-2 shadow-xl md:px-6">
@@ -211,4 +215,5 @@
 	class:lg:ml-72={sidebarOpen}
 >
 	{@render children()}
+
 </div>
