@@ -27,11 +27,13 @@ export const actions = {
             console.log("DbUser here", users);
 
             // Check if user exists
+            // @ts-ignore
             if (users.length === 0) {
                return fail(400, {
                    error: 'Invalid email or Password'
                });
             }
+            // @ts-ignore
 
             const user = users[0];
 
