@@ -21,14 +21,19 @@
 
 	const navItems = [
 		{ name: 'Jobs', href: '/dashboard', icon: LayoutDashboard },
-		{ name: 'Applications', href: '/Applications', icon: FileText },
-		{ name: 'User Profile', href: '/profile', icon: CircleUser },
+		{ name: 'Applications', href: '/dashboard/applications', icon: FileText },
+		{ name: 'User Profile', href: '/dashboard/profile', icon: CircleUser },
 		{ name: 'Help & Support', href: '/help', icon: CircleAlert }
 	];
 
 	const jobsNavItems = [
 		{ name: 'Jobs and Hustles', href: '/jobs', icon: List },
 		{ name: 'My Jobs Profile', href: '/myjobs', icon: Plug }
+	];
+	const publicNavItems = [
+		{ name: 'Home', href: '/dashboard/home' },
+		{ name: 'About', href: '/dashboard/about' },
+		{ name: 'Contact', href: '/dashboard/contact' }
 	];
 	function closeDropdown() {
 		dropdownOpen = false;
@@ -38,21 +43,28 @@
 
 <!-- Navigation Bar -->
 <nav class="fixed top-0 z-10 w-full bg-gray-900 px-2 shadow-xl md:px-6">
-	<div class="flex grow flex-col items-center justify-between sm:flex-row lg:px-6">
-		<div class="flex items-center space-x-4 py-3">
-			<TextAlignJustify
-				class="cursor-pointer text-white"
-				onclick={() => (sidebarOpen = !sidebarOpen)}
+		<div class="flex grow flex-col items-center justify-between sm:flex-row lg:px-6">
+			<div class="flex items-center space-x-4 py-3">
+				<TextAlignJustify
+					class="cursor-pointer text-white"
+					onclick={() => (sidebarOpen = !sidebarOpen)}
 			/>
 			<a href="/" class="flex items-center">
 				<img
 					src="/employmelogo.png"
 					class=" -mt-2 ml-5 h-20 object-contain drop-shadow-lg"
 					alt="EmployMe Logo"
-				/>
-			</a>
-		</div>
-		<div class="relative flex w-fit items-center gap-4 px-5 py-3 lg:px-0 lg:py-0 lg:shadow-none">
+					/>
+				</a>
+			</div>
+			<div class="hidden items-center gap-5 md: flex-4">
+				{#each publicNavItems as item (item.href)}
+					<a href={item.href} class="text-sm font-medium text-gray-300 transition hover:text-white">
+						{item.name}
+					</a>
+				{/each}
+			</div>
+			<div class="relative flex w-fit items-center gap-4 px-5 py-3 lg:px-0 lg:py-0 lg:shadow-none">
 			<span class="flex h-13 w-13 items-center justify-center rounded-full bg-white/20 text-white"
 				>D</span
 			>

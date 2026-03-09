@@ -1,9 +1,4 @@
-import db from '$lib/database'
-import { redirect } from '@sveltejs/kit';
- 
-
 /** @type {import('./$types').PageServerLoad} */
-export async function load() { 
-     return redirect(302, '/login');
-
-};
+export async function load() {
+	return {};
+}

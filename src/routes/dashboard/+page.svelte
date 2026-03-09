@@ -79,7 +79,7 @@
 				<span>
 					<span
 						class=" inline-block rounded-full bg-green-100 p-6 px-3 py-1 text-sm font-semibold text-blue-800"
-						>Part time</span
+						>{job.employment_type}</span
 					>
 				</span>
 			</div>
@@ -113,16 +113,27 @@
 					</div>
 
 					<div class="flex text-primary">
-						<a class="font-bold underline" href="/profile/1">View Profile</a>
+						<a class="font-bold underline" href="/profile">View Profile</a>
 					</div>
 				</span>
 			</div>
 			<hr class="my-4" />
 			<div class="flex items-center justify-between">
 				<span class="font-semibold text-primary">ksh {Number(job.salary_min).toFixed(0)} - {Number(job.salary_max).toFixed(0)}</span>
-				<button class="rounded-md bg-primary px-4 py-2 text-white transition hover:bg-primary/90"
-					>Apply Now</button
-				>
+				<form method="POST" action="?/apply">
+					<input type="hidden" name="job_listing_id" value={job.id} />
+					<button
+						type="submit"
+						disabled={Boolean(job.has_applied)}
+							class={`rounded-md px-4 py-2 text-white transition ${
+								job.has_applied
+									? 'cursor-not-allowed bg-slate-600'
+									: 'bg-primary hover:bg-primary/90'
+							}`}
+					>
+						{job.has_applied ? 'Applied' : 'Apply Now'}
+					</button>
+				</form>
 			</div>
 		</div>
 	{/each}
