@@ -14,29 +14,29 @@
 					<a href="/dashboard/about" class="rounded-md border border-white/40 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10">Learn More</a>
 				</div>
 			</div>
-			<div class="rounded-xl border border-white/15 bg-white/10 p-6 backdrop-blur-sm">
-				<h2 class="text-lg font-semibold text-white">Why EmployMe</h2>
-				<ul class="mt-4 space-y-3 text-sm text-indigo-100">
-					<li>Real opportunities from real employers.</li>
-					<li>Simple application flow and clear communication.</li>
-					<li>Professional dashboard to track your applications.</li>
-				</ul>
-			</div>
+					<div class="rounded-xl border border-white/20 bg-gradient-to-br from-primary/30 to-primary/10 p-6 backdrop-blur-sm">
+					<h2 class="text-lg font-semibold text-white">Why EmployMe</h2>
+					<ul class="mt-4 space-y-3 text-sm text-indigo-100">
+						<li>Real opportunities from real employers.</li>
+						<li>Simple application flow and clear communication.</li>
+						<li>Professional dashboard to track your applications.</li>
+					</ul>
+				</div>
 		</div>
 	</section>
 
-	<section class="mt-6 grid gap-4 md:grid-cols-3">
-		<div class="rounded-xl border border-indigo-100 bg-indigo-50 p-5">
-			<p class="text-sm font-semibold text-primary">Trusted Listings</p>
-			<p class="mt-2 text-sm text-slate-700">Employers are screened to keep opportunities reliable and safe.</p>
-		</div>
-		<div class="rounded-xl border border-teal-100 bg-teal-50 p-5">
-			<p class="text-sm font-semibold text-teal-800">Faster Applications</p>
-			<p class="mt-2 text-sm text-slate-700">Submit quickly and keep track of all updates from one place.</p>
-		</div>
-		<div class="rounded-xl border border-amber-100 bg-amber-50 p-5">
-			<p class="text-sm font-semibold text-amber-800">Career Growth</p>
-			<p class="mt-2 text-sm text-slate-700">Find work aligned to your experience and long-term goals.</p>
-		</div>
-	</section>
+		<section class="mt-6 grid gap-4 md:grid-cols-3">
+			<div class="rounded-xl border border-indigo-100 bg-indigo-50 p-5">
+				<p class="text-sm font-semibold text-primary">Trusted Listings</p>
+				<p class="mt-2 text-sm text-slate-700">Employers are screened to keep opportunities reliable and safe.</p>
+			</div>
+			<div class="rounded-xl border border-teal-100 bg-teal-50 p-5">
+				<p class="text-sm font-semibold text-teal-800">Faster Applications</p>
+				<p class="mt-2 text-sm text-slate-700">Submit quickly and keep track of all updates from one place.</p>
+			</div>
+			<div class="rounded-xl border border-amber-100 bg-amber-50 p-5">
+				<p class="text-sm font-semibold text-amber-800">Career Growth</p>
+				<p class="mt-2 text-sm text-slate-700">Find work aligned to your experience and long-term goals.</p>
+			</div>
+		</section>
 </div>

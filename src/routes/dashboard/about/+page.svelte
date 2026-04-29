@@ -3,7 +3,7 @@
 </svelte:head>
 
 <div class="px-2 py-4 sm:px-4">
-	<section class="overflow-hidden rounded-2xl border border-indigo-100 bg-gradient-to-r from-indigo-50 via-white to-teal-50 p-8 shadow-sm">
+		<section class="overflow-hidden rounded-2xl border border-primary/15 bg-gradient-to-br from-primary/10 to-primary/5 p-8 shadow-sm">
 		<p class="mb-3 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">Who We Are</p>
 		<h1 class="text-3xl font-bold text-slate-900">About EmployMe</h1>
 		<p class="mt-4 leading-7 text-slate-700">EmployMe is a practical hiring platform that helps people find real opportunities and helps employers discover dependable talent quickly.</p>

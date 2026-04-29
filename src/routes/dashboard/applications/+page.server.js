@@ -1,6 +1,7 @@
 import db from '$lib/database';
 import { redirect } from '@sveltejs/kit';
 
+
 /** @type {import('./$types').PageServerLoad} */
 export async function load({ cookies }) {
 	const userId = Number(cookies.get('user_id'));
@@ -48,4 +49,18 @@ export async function load({ cookies }) {
 	};
 
 	return { applications, stats };
+}
+export const actions = {
+	removeApplication: async ({ request, cookies }) => {
+		const formData = await request.formData();
+		const applicationId = formData.get('application_id');
+		const [result] = await db.query('DELETE FROM applications WHERE id = ? AND applicant_user_id = ?', [applicationId, Number(cookies.get('user_id'))]);
+		console.log("Delete result", result);
+
+
+
+
+
+		return { success: true }
+	}
 }

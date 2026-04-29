@@ -1,9 +1,13 @@
 <script lang="ts">
 	import { Mail, MapPin, Phone, User } from '@lucide/svelte';
 	import { SvelteSet } from 'svelte/reactivity';
+	import { getToastState } from '$lib/Toast.svelte';
+	import { enhance } from '$app/forms';
 	let expandedCards = new SvelteSet();
 
 	let { data } = $props();
+
+	const toast = getToastState();
 
 	function toggleCard(jobId: string | number) {
 		if (expandedCards.has(jobId)) {
@@ -12,9 +16,6 @@
 			expandedCards.add(jobId);
 		}
 	}
-
-
-	
 </script>
 
 <!-- Filter Section -->
@@ -63,7 +64,7 @@
 </div>
 
 <!-- Job Listings Section -->
-<div class="mt-6 grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+<div class="mt-6 grid gap-6 sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
 	<!-- Job Card Example -->
 
 	{#each data.job_listings as job}
@@ -78,7 +79,7 @@
 
 				<span>
 					<span
-						class=" inline-block rounded-full bg-green-100 p-6 px-3 py-1 text-sm font-semibold text-blue-800"
+						class="flex-nowrap inline-block rounded-full bg-green-100 p-6 px-3 py-1 text-sm font-semibold text-blue-800"
 						>{job.employment_type}</span
 					>
 				</span>
@@ -100,11 +101,11 @@
 			<!-- hidden row -->
 			<div class="">
 				<span
-					class="flex items-center justify-between text-gray-600"
+					class="flex items-center justify-between text-gray-600 flex-wrap gap-2"
 					hidden={!expandedCards.has(job.id)}
 				>
 					<div class="flex">
-						<Phone size={19 } class="mr-1 text-green-600" />
+						<Phone size={19} class="mr-1 text-green-600" />
 						<a href="tel:+254722123456">{job.phone_number}</a>
 					</div>
 					<div class="flex">
@@ -118,18 +119,43 @@
 				</span>
 			</div>
 			<hr class="my-4" />
+
+		
+
 			<div class="flex items-center justify-between">
-				<span class="font-semibold text-primary">ksh {Number(job.salary_min).toFixed(0)} - {Number(job.salary_max).toFixed(0)}</span>
-				<form method="POST" action="?/apply">
+				<span class="font-semibold text-primary"
+					>ksh {Number(job.salary_min).toFixed(0)} - {Number(job.salary_max).toFixed(0)}</span
+				>
+
+				<form
+					method="POST"
+					action="?/apply"
+					use:enhance={() => {
+						return async ({ result, update }) => {
+							if (result.type === 'success') {
+								toast.add(
+									'Application Submitted',
+									'Your application has been submitted successfully',
+									'success'
+								);
+								update();
+							} else if (result.type === 'failure') {
+								toast.add(
+									'Application Failed',
+									'An error occurred while submitting your application',
+									'error'
+								);
+							}
+						};
+					}}
+				>
 					<input type="hidden" name="job_listing_id" value={job.id} />
 					<button
 						type="submit"
 						disabled={Boolean(job.has_applied)}
-							class={`rounded-md px-4 py-2 text-white transition ${
-								job.has_applied
-									? 'cursor-not-allowed bg-slate-600'
-									: 'bg-primary hover:bg-primary/90'
-							}`}
+						class={`rounded-md px-4 py-2 text-white transition ${
+							job.has_applied ? 'cursor-not-allowed bg-slate-600' : 'bg-primary hover:bg-primary/90'
+						}`}
 					>
 						{job.has_applied ? 'Applied' : 'Apply Now'}
 					</button>

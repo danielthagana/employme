@@ -23,7 +23,6 @@
 		{ name: 'Jobs', href: '/dashboard', icon: LayoutDashboard },
 		{ name: 'Applications', href: '/dashboard/applications', icon: FileText },
 		{ name: 'User Profile', href: '/dashboard/profile', icon: CircleUser },
-		{ name: 'Help & Support', href: '/help', icon: CircleAlert }
 	];
 
 	const jobsNavItems = [
