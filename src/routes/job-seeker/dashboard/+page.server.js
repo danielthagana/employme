@@ -11,6 +11,7 @@ export async function load({ cookies }) {
 
 		const [job_listings] = await db.query(
 			`SELECT
+			
 				job_listings.*,
 				users.email,
 				users.phone_number,

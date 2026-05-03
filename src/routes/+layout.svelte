@@ -8,6 +8,7 @@
 	setToastState();
 </script>
 
+
 <svelte:head>
 	<link rel="icon" href="employmelogo.png" />
 </svelte:head>
@@ -16,3 +17,4 @@
 	<Toaster />
 	{@render children?.()}
 </div>
+

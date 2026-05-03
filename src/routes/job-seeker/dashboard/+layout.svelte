@@ -20,19 +20,18 @@
 	let sidebarOpen = $state(true);
 
 	const navItems = [
-		{ name: 'Jobs', href: '/dashboard', icon: LayoutDashboard },
-		{ name: 'Applications', href: '/dashboard/applications', icon: FileText },
-		{ name: 'User Profile', href: '/dashboard/profile', icon: CircleUser },
+		{ name: 'Jobs', href: '/job-seeker/dashboard', icon: LayoutDashboard },
+		{ name: 'Applications', href: '/job-seeker/dashboard/applications', icon: FileText },
+		{ name: 'User Profile', href: '/job-seeker/dashboard/profile', icon: CircleUser },
 	];
 
 	const jobsNavItems = [
-		{ name: 'Jobs and Hustles', href: '/jobs', icon: List },
-		{ name: 'My Jobs Profile', href: '/myjobs', icon: Plug }
+		{ name: 'My Jobs Profile', href: '/job-seeker/dashboard/user-profile', icon: Plug }
 	];
 	const publicNavItems = [
-		{ name: 'Home', href: '/dashboard/home' },
-		{ name: 'About', href: '/dashboard/about' },
-		{ name: 'Contact', href: '/dashboard/contact' }
+		{ name: 'Home', href: '/job-seeker/dashboard/home' },
+		{ name: 'About', href: '/job-seeker/dashboard/about' },
+		{ name: 'Contact', href: '/job-seeker/dashboard/contact' }
 	];
 	function closeDropdown() {
 		dropdownOpen = false;
@@ -91,7 +90,7 @@
 					<li class=" flex items-center rounded-lg px-4 py-2 hover:bg-gray-700">
 						<UserRoundPen class=" h-9" />
 						<a
-							href="/profile"
+							href="/job-seeker/dashboard/profile"
 							class="flex items-center rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700"
 						>
 							Edit Profile

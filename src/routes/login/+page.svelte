@@ -41,8 +41,8 @@
 						if (result.type === 'failure') {
 							error = `${result.data?.error}` || 'An unknown error occurred.';
 						} else if (result.type === 'success') {
-							
-							goto('/dashboard');
+							console.log('Login successful=================:', result);
+							goto('employer/dashboard');
 						}
 					};
 				}}

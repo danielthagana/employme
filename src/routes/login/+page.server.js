@@ -66,7 +66,8 @@ export const actions = {
                 success: true,
                 message: 'Login successful',
                 userId: user.id,
-                userName: user.name
+                userName: user.name,
+                roleId: user.role_id
             };
 
         } catch (error) {

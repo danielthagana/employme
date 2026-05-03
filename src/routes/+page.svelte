@@ -8,9 +8,9 @@
 
 <div class="min-h-screen bg-slate-50 text-slate-900">
 	<header class="border-b border-slate-200 bg-white/90 backdrop-blur">
-		<div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+		<div class="mx-auto flex items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
 			<a href="/" class="text-xl font-bold text-primary">EmployMe</a>
-			<nav class="flex items-center gap-6 text-sm font-medium">
+			<nav class="flex items-center gap-15 text-sm font-medium">
 				<a href="/" class="text-primary">Home</a>
 				<a href="/about" class="text-slate-600 transition hover:text-primary">About</a>
 				<a href="/contact" class="text-slate-600 transition hover:text-primary">Contact</a>
@@ -22,7 +22,7 @@
 		</div>
 	</header>
 
-	<main class="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
+	<main class="px-4 py-16 sm:px-6 lg:px-8">
 		<section class="grid items-center gap-8 rounded-2xl border border-slate-200 bg-white p-8 shadow-sm md:grid-cols-2">
 			<div>
 				<p class="mb-3 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-slate-700">Reliable Hiring Platform</p>
