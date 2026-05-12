@@ -4,7 +4,7 @@
 
 	/** @type {import('./$types').PageProps} */
 	let { data } = $props();
-	console.log("datahere",data);
+	console.log('datahere', data);
 
 	let email = $state('');
 	let password = $state('');
@@ -40,21 +40,18 @@
 				class="space-y-6"
 				method="post"
 				use:enhance={({ formData, cancel }) => {
-
 					error = '';
 					if (password !== confirmPassword) {
 						error = 'Passwords do not match.';
 						cancel();
 					}
-					
+
 					console.log('Form submitted with data:', formData, email, password);
 					return async ({ result }) => {
+						console.log('myresult', result);
 						if (result.type === 'failure') {
 							error = `${result.data?.error}` || 'An unknown error occurred.';
-
-						}
-						else if (result.type === 'success') {
-							
+						} else if (result.type === 'success') {
 							goto('/login');
 						}
 					};
@@ -79,7 +76,7 @@
 						bind:value={role}
 						name="role"
 						required
-						class="w-full rounded-lg border border-gray-300 px-4 py-3 transition outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500 capitalize"
+						class="w-full rounded-lg border border-gray-300 px-4 py-3 capitalize transition outline-none focus:border-transparent focus:ring-2 focus:ring-blue-500"
 					>
 						{#each data.roles as role}
 							<option value={role.id} class="capitalize">{role.role_name}</option>
@@ -178,7 +175,7 @@
 				<button
 					type="submit"
 					disabled={isLoading}
-					class="w-full transform rounded-lg bg-primary px-4 py-3 font-semibold text-white  hover:bg-primary/80 disabled:bg-blue-400 disabled:hover:scale-100"
+					class="w-full transform rounded-lg bg-primary px-4 py-3 font-semibold text-white hover:bg-primary/80 disabled:bg-blue-400 disabled:hover:scale-100"
 				>
 					{isLoading ? 'Creating Account...' : 'Sign Up'}
 				</button>
@@ -187,9 +184,7 @@
 				<div class="text-center">
 					<p class="text-gray-600">
 						Do you have an account?
-						<a href="/login" class="font-semibold text-primary  hover:underline" >
-							Login Here
-						</a>
+						<a href="/login" class="font-semibold text-primary hover:underline"> Login Here </a>
 					</p>
 				</div>
 			</form>

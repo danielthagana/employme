@@ -37,7 +37,9 @@ export const actions = {
             console.log("Insert result", result);
 
             return {
-                success: true
+                success: true,
+                role
+            
             };
             
         } catch (error) {

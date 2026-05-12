@@ -42,7 +42,15 @@
 							error = `${result.data?.error}` || 'An unknown error occurred.';
 						} else if (result.type === 'success') {
 							console.log('Login successful=================:', result);
-							goto('employer/dashboard');
+							if (result.data?.roleId === 1) {
+								goto('job-seeker/dashboard');
+							} else if (result.data?.roleId === 2) {
+								goto('employer/dashboard');
+								
+							}
+							else if (result.data?.roleId === 3) {
+								goto('/admin/dashboard');
+							}	
 						}
 					};
 				}}
