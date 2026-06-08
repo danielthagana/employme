@@ -6,7 +6,7 @@
 		TextAlignJustify,
 		FileText,
 		CircleUser,
-		List,
+		History,
 		Plug,
 		UserRoundPen,
 		LogOut
@@ -27,7 +27,7 @@
 	];
 
 	const jobsNavItems = [
-		{ name: 'Job Listings', href: '/employer/dashboard/job-listings', icon: List },
+		{ name: 'History', href: '/employer/dashboard/history', icon: History },
 		{ name: 'Post a Job', href: '/employer/dashboard/post-job', icon: Plug }
 	];
 	const publicNavItems = [
