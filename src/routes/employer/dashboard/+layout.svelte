@@ -53,7 +53,7 @@
 				/>
 			</a>
 		</div>
-		<div class="hidden items-center gap-5 md:flex">
+		<div class="hidden items-center gap-30 md:flex">
 			{#each publicNavItems as item (item.href)}
 				<a href={item.href} class="text-sm font-medium text-gray-300 transition hover:text-white">
 					{item.name}
@@ -62,13 +62,13 @@
 		</div>
 		<div class="relative flex w-fit items-center gap-4 px-5 py-3 lg:px-0 lg:py-0 lg:shadow-none">
 			<span class="flex h-13 w-13 items-center justify-center rounded-full bg-white/20 text-white"
-				>D</span
+				>{data.user.name.charAt(0)}</span
 			>
 			<button
 				class=" flex cursor-pointer items-center justify-center space-x-2 px-5 py-2 font-semibold text-white"
 				onclick={() => (dropdownOpen = !dropdownOpen)}
 			>
-				<span class="text-lg"> Daniel </span>
+				<span class="text-lg"> {data.user.name} </span>
 
 				{#if dropdownOpen}
 					<ChevronDown />
@@ -81,8 +81,8 @@
 				class:hidden={dropdownOpen}
 			>
 				<div class=" flex flex-col space-y-1 px-3 py-2 text-gray-700 dark:text-gray-300">
-					<span> Daniel Thagana </span>
-					<span> kiretai05dan@gmail.com </span>
+					<span> {data.user.name} </span>
+					<span> {data.user.email} </span>
 				</div>
 				<ul>
 					<li class=" flex items-center rounded-lg px-4 py-2 hover:bg-gray-700">
