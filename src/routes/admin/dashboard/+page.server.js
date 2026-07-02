@@ -4,28 +4,32 @@ export async function load() {
     try {
         const [jobs] = await db.query(`
             SELECT 
-                id,
-                title,
-                company_name,
-                job_id,
-                description,
-                requirements,
-                location,
-                employment_type,
-                start_datetime,
-                end_datetime,
-                salary_min,
-                salary_max,
-                posted_by_user_id,
-                application_deadline,
-                is_active,
-                views_count,
-                created_at,
-                updated_at
-            FROM job_listings
-            ORDER BY created_at DESC
+                jl.id,
+                jl.title,
+                jl.company_name,
+                jl.job_id,
+                jl.description,
+                jl.requirements,
+                jl.location,
+                jl.employment_type,
+                jl.start_datetime,
+                jl.end_datetime,
+                jl.salary_min,
+                jl.salary_max,
+                jl.posted_by_user_id,
+                jl.application_deadline,
+                jl.is_active,
+                jl.views_count,
+                jl.created_at,
+                jl.updated_at,
+                users.name
+
+            FROM job_listings jl
+            JOIN users ON jl.posted_by_user_id = users.id
+            ORDER BY jl.created_at DESC
+
         `);
-        
+        // console.log('Jobs fetched==========:', jobs);
         return {
             jobs: jobs || []
         };
@@ -48,6 +52,7 @@ export const actions = {
             return { success: true };
         } catch (error) {
             console.error('Error deleting job:', error);
+            //@ts-ignore
             return { success: false, error: error.message };
         }
     },
@@ -62,6 +67,7 @@ export const actions = {
             return { success: true };
         } catch (error) {
             console.error('Error toggling job status:', error);
+            //@ts-ignore
             return { success: false, error: error.message };
         }
     }

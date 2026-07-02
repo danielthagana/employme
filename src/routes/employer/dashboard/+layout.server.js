@@ -9,7 +9,7 @@ export async function load({ cookies }) {
         if (!userId) {
             throw redirect(302, '/login');
         }
-// select from db usig userId to get user info and pass it to the layout
+// select from db usig userId to get user info and pass it toc the layout
     const [user] = await db.query(
         `SELECT id, name, email FROM users WHERE id = ?`,
         [userId]

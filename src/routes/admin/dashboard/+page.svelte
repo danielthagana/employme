@@ -6,7 +6,7 @@
     let { data } = $props();
     let isExporting = false;
 
-    function formatDate(date) {
+    function formatDate(date:  string | null | undefined) {
         if (!date) return '-';
         return new Date(date).toLocaleDateString('en-US', {
             year: 'numeric',
@@ -15,13 +15,17 @@
         });
     }
 
-    function formatSalary(min, max) {
-        if (!min && !max) return '-';
-        if (min && max) return `$${Number(min).toLocaleString()} - $${Number(max).toLocaleString()}`;
-        if (min) return `$${Number(min).toLocaleString()}`;
-        return `$${Number(max).toLocaleString()}`;
-    }
+   function formatSalary(min:number, max:number) {
+    const formatValue = (value:number | null | undefined) => {
+        if (!value && value !== 0) return null;
+        return `KES ${Number(value).toLocaleString('en-KE')}`;
+    };
 
+    if (!min && !max) return '-';
+    if (min && max) return `${formatValue(min)} - ${formatValue(max)}`;
+    if (min) return formatValue(min);
+    return formatValue(max);
+}
     function buildPdfTable() {
         const container = document.createElement('div');
         container.style.width = '100%';
@@ -51,7 +55,7 @@
             'Deadline',
             'Posted',
             'Views',
-            'Status'
+            'Posted By'
         ];
 
         const thead = document.createElement('thead');
@@ -70,7 +74,7 @@
         table.appendChild(thead);
 
         const tbody = document.createElement('tbody');
-        data.jobs.forEach(job => {
+        data.jobs.forEach((job: any) => {
             const row = document.createElement('tr');
 
             const cells = [
@@ -82,7 +86,7 @@
                 formatDate(job.application_deadline),
                 formatDate(job.created_at),
                 String(job.views_count || 0),
-                job.is_active ? 'Active' : 'Inactive'
+                job.posted_by || '-'
             ];
 
             cells.forEach(value => {
@@ -191,8 +195,7 @@
 						<th class="px-4 py-3 text-left font-semibold text-slate-300">Deadline</th>
 						<th class="px-4 py-3 text-left font-semibold text-slate-300">Posted</th>
 						<th class="px-4 py-3 text-left font-semibold text-slate-300">Views</th>
-						<th class="px-4 py-3 text-left font-semibold text-slate-300">Status</th>
-						<th class="no-print px-4 py-3 text-left font-semibold text-slate-300">Actions</th>
+						<th class="px-4 py-3 text-left font-semibold text-slate-300">Posted By</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -219,40 +222,8 @@
 							>
 							<td class="px-4 py-3 text-xs text-slate-400">{formatDate(job.created_at)}</td>
 							<td class="px-4 py-3 text-slate-400">{job.views_count || 0}</td>
-							<td class="px-4 py-3">
-								<span
-									class={`rounded px-2 py-1 text-xs font-semibold ${
-										job.is_active ? 'bg-green-900/30 text-green-400' : 'bg-red-900/30 text-red-400'
-									}`}
-								>
-									{job.is_active ? 'Active' : 'Inactive'}
-								</span>
-							</td>
-							<td class="no-print px-4 py-3">
-								<div class="flex gap-2">
-									<form method="POST" action="?/toggleActive" use:enhance>
-										<input type="hidden" name="id" value={job.id} />
-										<input type="hidden" name="isActive" value={job.is_active} />
-										<button
-											type="submit"
-											class="rounded px-2 py-1 text-blue-400 hover:bg-blue-900/30"
-											title="Toggle status"
-										>
-											<ToggleRight size={18} />
-										</button>
-									</form>
-									<form method="POST" action="?/deleteJob" use:enhance>
-										<input type="hidden" name="id" value={job.id} />
-										<button
-											type="submit"
-											class="rounded px-2 py-1 text-red-400 hover:bg-red-900/30"
-											title="Deactivate job"
-										>
-											<Trash2 size={18} />
-										</button>
-									</form>
-								</div>
-							</td>
+							
+						<td class="px-4 py-3 text-slate-400">{job.name || '-'}</td>
 						</tr>
 					{/each}
 				</tbody>

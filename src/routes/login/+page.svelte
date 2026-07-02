@@ -49,7 +49,8 @@
 								
 							}
 							else if (result.data?.roleId === 3) {
-								goto('/admin/dashboard');
+								console.log('Admin login successful, redirecting to admin dashboard...');
+								goto('admin/dashboard');
 							}	
 						}
 					};
